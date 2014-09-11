@@ -1,0 +1,54 @@
+<input type="text" ng-model="query" class="form-control" placeholder="search"/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Ordinal</th>
+      <th>Years Active</th>
+      <th>Played By</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="doctor in doctors">
+      <td><a ng-href="#/doctors/{{doctor.Id}}">{{doctor.Ordinal}}</a></td>
+      <td>{{doctor.YearsActive}}</td>
+      <td>{{doctor.Actor}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add A Doc</h3>
+  </div>
+  <div class="panel-body">
+    <form role="form" novalidate ng-submit="addDoctor(doctor)">
+      <div class="form-group">
+        <label>
+          Id
+          <input required ng-model="doctor.Id" type="number" Placeholder="Id?" class="form-control"/>
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Ordinal
+          <input required type="text" ng-model="doctor.Ordinal" name="Ordinal" Placeholder="Ordinal?" class="form-control"/>
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Years Active
+          <input required type="text" ng-model="doctor.YearsActive" name="YearsActive" Placeholder="Years Active?" class="form-control"/>
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Actor
+          <input required type="text" ng-model="doctor.Actor" name="Actor" Placeholder="Actor?" class="form-control"/>
+        </label>
+      </div>
+      <input type="submit" value="Add"/>
+    </form>
+  </div>
+</div>
